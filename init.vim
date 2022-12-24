@@ -6,8 +6,8 @@ syn on
 set incsearch
 set updatetime=100
 set relativenumber
-"hi NormalFloat ctermfg=LightGrey
 colorscheme gruvbox
+set cursorline
 
 let mapleader = ','
 
