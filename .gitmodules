@@ -25,3 +25,6 @@
 [submodule "pack/plugins/start/toggleterm.nvim"]
 	path = pack/plugins/start/toggleterm.nvim
 	url = https://github.com/akinsho/toggleterm.nvim
+[submodule "pack/plugins/start/lualine.nvim"]
+	path = pack/plugins/start/lualine.nvim
+	url = https://github.com/nvim-lualine/lualine.nvim
