@@ -46,3 +46,11 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
 })
+
+-- toggleterm / toggle via Shift + Alt + t
+require'toggleterm'.setup {
+  open_mapping = [[<S-c-t>]],
+  shade_terminals = false,
+  close_on_exit = true,
+  direction = 'float',
+}
