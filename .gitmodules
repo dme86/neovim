@@ -28,3 +28,6 @@
 [submodule "pack/plugins/start/lualine.nvim"]
 	path = pack/plugins/start/lualine.nvim
 	url = https://github.com/nvim-lualine/lualine.nvim
+[submodule "pack/plugins/start/undotree"]
+	path = pack/plugins/start/undotree
+	url = https://github.com/mbbill/undotree

@@ -21,6 +21,9 @@ vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', { noremap = tr
 vim.keymap.set("n", "<S-A-Right>", '<Cmd>BufferPrevious<CR>', { noremap = true, silent = true })
 vim.keymap.set("n", "<S-A-Left>", '<Cmd>BufferNext<CR>', { noremap = true, silent = true })
 
+-- undootree
+vim.keymap.set('n', '<C-u>', ':UndotreeToggle<CR>')
+
 -- tree settings
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
