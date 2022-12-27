@@ -31,3 +31,6 @@
 [submodule "pack/plugins/start/undotree"]
 	path = pack/plugins/start/undotree
 	url = https://github.com/mbbill/undotree
+[submodule "pack/plugins/start/Comment.nvim"]
+	path = pack/plugins/start/Comment.nvim
+	url = https://github.com/numToStr/Comment.nvim

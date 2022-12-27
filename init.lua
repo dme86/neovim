@@ -24,6 +24,9 @@ vim.keymap.set("n", "<S-A-Left>", '<Cmd>BufferNext<CR>', { noremap = true, silen
 -- undootree
 vim.keymap.set('n', '<C-u>', ':UndotreeToggle<CR>')
 
+-- comments (visual: gc -> linewise comment; gb -> blockwise comment)
+require('Comment').setup()
+
 -- tree settings
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
