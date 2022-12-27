@@ -3,9 +3,13 @@
 This is my advanced [neovim](https://neovim.io/) configuration, written in [lua](https://www.lua.org/). It comes with [gruvbox](https://github.com/morhetz/gruvbox) and some really nice features like:
 | Tabs & Source Tree | Fuzzy Finder | Toggle Terminal|
 |--|--|--|
-| ![enter image description here](https://i.imgur.com/NaalKtO.png) | ![enter image description here](https://i.imgur.com/zDb5YFK.png) | ![enter image description here](https://i.imgur.com/9guCN8L.png) |
-|gitui|
-| ![enter image description here](https://i.imgur.com/x8DZLsi.png) |
+| ![enter image description here](https://i.imgur.com/NaalKtO.png) | ![enter image description here](https://i.imgur.com/zDb5YFK.png) | ![enter image description here](https://i.imgur.com/9guCN8L.png) |![enter image description here](https://i.imgur.com/x8DZLsi.png) |
+
+| gitui |  
+|--|
+|![enter image description here](https://i.imgur.com/x8DZLsi.png)  |  
+
+
 
 ## dependencies
 
