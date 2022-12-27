@@ -5,7 +5,6 @@ This is my advanced [neovim](https://neovim.io/) configuration, written in [lua]
 |--|--|--|
 | ![enter image description here](https://i.imgur.com/NaalKtO.png) | ![enter image description here](https://i.imgur.com/zDb5YFK.png) | ![enter image description here](https://i.imgur.com/9guCN8L.png) |
 |gitui|
-|--|
 | ![enter image description here](https://i.imgur.com/x8DZLsi.png) |
 
 ## dependencies
