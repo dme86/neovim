@@ -1,39 +1,52 @@
 [submodule "pack/plugins/start/barbar.nvim"]
 	path = pack/plugins/start/barbar.nvim
 	url = https://github.com/romgrk/barbar.nvim
+	ignore = dirty
 [submodule "pack/plugins/start/nvim-tree.lua"]
 	path = pack/plugins/start/nvim-tree.lua
 	url = https://github.com/nvim-tree/nvim-tree.lua
+	ignore = dirty
 [submodule "pack/plugins/start/nvim-treesitter"]
 	path = pack/plugins/start/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter
+	ignore = dirty
 [submodule "pack/plugins/start/nvim-web-devicons"]
 	path = pack/plugins/start/nvim-web-devicons
 	url = https://github.com/nvim-tree/nvim-web-devicons
+	ignore = dirty
 [submodule "pack/plugins/start/plenary.nvim"]
 	path = pack/plugins/start/plenary.nvim
 	url = https://github.com/nvim-lua/plenary.nvim
+	ignore = dirty
 [submodule "pack/plugins/start/telescope.nvim"]
 	path = pack/plugins/start/telescope.nvim
 	url = https://github.com/nvim-telescope/telescope.nvim
+	ignore = dirty
 [submodule "pack/plugins/start/coc.nvim"]
 	path = pack/plugins/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
+	ignore = dirty
 [submodule "pack/plugins/start/gruvbox"]
 	path = pack/plugins/start/gruvbox
 	url = https://github.com/morhetz/gruvbox
+	ignore = dirty
 [submodule "pack/plugins/start/toggleterm.nvim"]
 	path = pack/plugins/start/toggleterm.nvim
 	url = https://github.com/akinsho/toggleterm.nvim
+	ignore = dirty
 [submodule "pack/plugins/start/lualine.nvim"]
 	path = pack/plugins/start/lualine.nvim
 	url = https://github.com/nvim-lualine/lualine.nvim
+	ignore = dirty
 [submodule "pack/plugins/start/undotree"]
 	path = pack/plugins/start/undotree
 	url = https://github.com/mbbill/undotree
+	ignore = dirty
 [submodule "pack/plugins/start/Comment.nvim"]
 	path = pack/plugins/start/Comment.nvim
 	url = https://github.com/numToStr/Comment.nvim
+	ignore = dirty
 [submodule "pack/plugins/start/search-replace.nvim"]
 	path = pack/plugins/start/search-replace.nvim
 	url = https://github.com/roobert/search-replace.nvim
+	ignore = dirty
