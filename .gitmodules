@@ -34,3 +34,6 @@
 [submodule "pack/plugins/start/Comment.nvim"]
 	path = pack/plugins/start/Comment.nvim
 	url = https://github.com/numToStr/Comment.nvim
+[submodule "pack/plugins/start/search-replace.nvim"]
+	path = pack/plugins/start/search-replace.nvim
+	url = https://github.com/roobert/search-replace.nvim
