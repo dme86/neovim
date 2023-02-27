@@ -63,13 +63,13 @@ require'toggleterm'.setup {
 }
 
 local Terminal  = require('toggleterm.terminal').Terminal
-local gitui = Terminal:new({ cmd = "gitui", hidden = true })
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 
-function _gitui_toggle()
-  gitui:toggle()
+function _lazygit_toggle()
+  lazygit:toggle()
 end
 
-vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _gitui_toggle()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
 
 -- lualine
 require('lualine').setup {
