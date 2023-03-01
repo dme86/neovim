@@ -1,12 +1,15 @@
 -- global settings
 vim.g.mapleader = ","
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
-vim.opt.updatetime = 100
-vim.opt.cursorline = true
-vim.opt.showmode = false
+local opt = vim.opt
+opt.number = true
+opt.relativenumber = true
+opt.hlsearch = true
+opt.incsearch = true
+opt.updatetime = 100
+opt.cursorline = true
+opt.showmode = false
+opt.shiftwidth = 2
+opt.smartindent = true
 vim.cmd('colorscheme gruvbox')
 
 

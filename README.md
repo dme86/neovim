@@ -36,6 +36,8 @@ Run `yarn install` inside `~/.config/nvim/pack/plugins/start/coc.nvim` and type 
 |`,ff`|open telescope as a **file finder**|
 |`,fg`|open telescope as **live grep**|
 |`,g`|open lazygit (`Ctrl/Strg + c`) to close)|
+|`>` o. `<`|in **visual** mode: indent block by shiftwidth (repeat with `.`)|
+|`Ctrl/Strg+t` o. `Ctrl/Strg+d`|in **visual** mode: indent block by shiftwidth|
 
 
 ### nvim-tree
