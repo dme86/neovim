@@ -41,7 +41,7 @@ Run `yarn install` inside `~/.config/nvim/pack/plugins/start/coc.nvim` and type 
 |`NUMBER`k|Relative `Number` followed by `k` will move you **up** to `number`|
 |`O`|Make a new line above cursor and go into insert mode|
 |`f` CHAR|`f` goes **forward** to the character CHAR. Example: `f {` will jump to the next `{` (repeat with `;` forward and `,` for backwards). `F` CHAR will do the same but backwards|
-|`Ctrl/Strg+]`|Jump to the definition of a function (from where the cursor is)|
+|`Ctrl/Strg+]`|Jump to the definition of a function (from where the cursor is) - you need [ctags](https://github.com/universal-ctags/ctags) for this feature.|
 |`Ctrl/Strg+T`|Go back to the function|
 
 ### advanced vim commands
