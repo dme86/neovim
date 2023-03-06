@@ -26,7 +26,35 @@ Run `yarn install` inside `~/.config/nvim/pack/plugins/start/coc.nvim` and type 
 
 ## keybindings
 
-###  general
+### vim movements
+
+|Key  |Description  |
+|--|--|
+|`_`|Go to the beginning of line|
+|`$`|Go to the end of line|
+|`0`|Go to the first character|
+|`A`|Go to end of the line and go into insert mode|
+|`I`|Go to beginning of the line and go into insert mode|
+|`o`|Make a new line and go into insert mode|
+|`O`|Make a new line above cursor and go into insert mode|
+|`f` CHAR|`f` goes **forward** to the character CHAR. Example: `f {` will jump to the next `{` (repeat with `;` forward and `,` for backwards). `F` CHAR will do the same but backwards|
+
+### advanced vim commands
+
+|`:`Command  |Description  |
+|--|--|
+|`:buffers`|List all available buffers|
+|`:vsp #NUM`|Use `NUM` as the number you got from `buffers` to open a vertical split with this buffer|
+|`Ctrl/Strg+w` `h`|Shift focus to split on left of current|
+|`Ctrl/Strg+w` `l`|Shift focus to split on right of current|
+|`Ctrl/Strg+w` `r`|Rotates the windows from left to right - only if the windows are split vertically|
+|`Ctrl/Strg+w` `R`|Rotates the windows from right to left - only if the windows are split vertically|
+|`Ctrl/Strg+w` `o`|Closes all other splits|
+|`Ctrl/Strg+w` `|`|Increase a window to its maximum width|
+|`Ctrl/Strg+w` `_`|Increase a window to its maximum height|
+|`Ctrl/Strg+w` `=`|Resize all windows to equal dimensions based on their splits|
+
+###  general plugins binds
 
 |Key  |Description  |
 |--|--|
@@ -45,6 +73,7 @@ Run `yarn install` inside `~/.config/nvim/pack/plugins/start/coc.nvim` and type 
 |Key  |Description  |
 |--|--|
 |`Ctrl/Strg + n` |open/close tree view |
+|`Ctrl/Strg + v`|open file in (vertical)split view|
 |`Ctrl/Strg + Arrow` (left o. right)|focus on tree / file view|
 |`a`|(add) create a new file|
 |`r`|(rename) to rename the selected file from the original name|
