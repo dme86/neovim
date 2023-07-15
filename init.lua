@@ -10,6 +10,7 @@ opt.cursorline = true
 opt.showmode = false
 opt.shiftwidth = 2
 opt.smartindent = true
+opt.clipboard = "unnamedplus"
 vim.cmd('colorscheme gruvbox')
 
 
