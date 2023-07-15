@@ -1,3 +1,4 @@
+
 # neovim
 
 This is my advanced [neovim](https://neovim.io/) configuration, written in [lua](https://www.lua.org/). It comes with [gruvbox](https://github.com/morhetz/gruvbox) and some really nice features like:
@@ -34,9 +35,25 @@ Install [HCL for treesitter](https://github.com/MichaHoffmann/tree-sitter-hcl) i
 
     :TSInstall hcl
 
+## tips, tricks and hints
+
+### normal mode
+
+I would recommend using `j` (**down**), `k` (**up**), `h` (**left**), and `l` (**right**) keys for navigating your cursor. With the `relativenumber` setting enabled, you can easily jump to a specific line by pressing the line number and then `j` or `k` for relative movement.
+
+If your cursor is inside brackets or quotes, you can type `di` (**delete inside**) followed by the bracket or quote symbol to delete the content inside them.
+
+Use `t` and `f` for jumping to the next specified character. For example, typing `f` followed by `(` will place your cursor **at** the next `(`. `f` stands for "follow," while `t` will send your cursor **to** the character just *before* the specified symbol, such as the next `(`.
+You can use `F` or `T` to jump backwards from your cursor position.
+You can repeat your jump by pressing `;` to jump forwards and `,` to jump backwards.
+
+> You can always combine those commands. For example, by typing `v` to
+> enter visual mode, followed by `f` to follow and then `(`, you can
+> highlight everything from your cursor to the next `(`.
+
 ## keybindings
 
-###  general
+###  my setup
 
 |Key  |Description  |
 |--|--|
@@ -63,3 +80,15 @@ Install [HCL for treesitter](https://github.com/MichaHoffmann/tree-sitter-hcl) i
 |`W`|(collapse_all) to close all open folders starting from the root folder|
 |`f`|(find) to open the interactive file search to which search filters can be applied. `F` to close|
 |`Ctrl/Strg + k`|display information about the file such as size, creation date, etc.|
+
+### (neo)vim  in general
+
+|Key  |Description  |
+|--|--|
+|`_`|go to first character|
+|`$`|go to last character|
+|`0`|go to beginning character|
+|`h`|one character to the left|
+|`l`|one character to the right|
+|`j`|one line down|
+|`h`|one line up|
