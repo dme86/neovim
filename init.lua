@@ -13,6 +13,10 @@ opt.smartindent = true
 opt.clipboard = "unnamedplus"
 vim.cmd('colorscheme gruvbox')
 
+-- (fancy) Remaps
+-- while in 'visual line' mode i can move the highlighted text around with 'J' and 'K'
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Find files using Telescope command-line sugar.
 vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { noremap = true})
