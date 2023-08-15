@@ -6,7 +6,7 @@ This is my advanced [neovim](https://neovim.io/) configuration, written in [lua]
 |--|--|--|
 | ![enter image description here](https://i.imgur.com/NaalKtO.png) | ![enter image description here](https://i.imgur.com/zDb5YFK.png) | ![enter image description here](https://i.imgur.com/9guCN8L.png) |![enter image description here](https://i.imgur.com/x8DZLsi.png) |
 
-| lazygit |
+| lazygit ([Tutorial](https://dme86.github.io/2023/08/15/Lazygit-tutorial/)) |
 |--|
 |![enter image description here](https://i.imgur.com/PqPbvJC.png)  |
 
