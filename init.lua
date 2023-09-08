@@ -44,15 +44,11 @@ vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>')
 vim.keymap.set("n", "<C-Right>", '<c-w>l', { noremap = true, silent = true })
 vim.keymap.set("n", "<C-Left>", '<c-w>h', { noremap = true, silent = true })
 
+-- require("nvim-tree").setup({
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
   view = {
-    adaptive_size = true,
-    mappings = {
-      list = {
-        { key = "u", action = "dir_up" },
-      },
-    },
+    width = 30,
   },
   renderer = {
     group_empty = true,
@@ -123,7 +119,7 @@ require('lualine').setup {
 
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the four listed parsers should always be installed)
-  ensure_installed = { "hcl", "lua", "vim", "help" },
+  ensure_installed = { "hcl", "lua", "vim" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
