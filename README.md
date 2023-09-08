@@ -16,12 +16,15 @@ This is my advanced [neovim](https://neovim.io/) configuration, written in [lua]
 
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [lazygit](https://github.com/jesseduffield/lazygit)
+- [node](https://nodejs.org/en)
+- [yarn](https://yarnpkg.com/)
 
 ## installation
 
 git clone with submodules:
 
-    git clone --recurse-submodules git@github.com:dme86/neovim.git
+    cd ~/.config/
+    git clone --recurse-submodules git@github.com:dme86/neovim.git nvim
 
 Run `yarn install` inside `~/.config/nvim/pack/plugins/start/coc.nvim` and type `:CocInstall coc-go` inside neovim.
 
@@ -30,10 +33,6 @@ Run `yarn install` inside `~/.config/nvim/pack/plugins/start/coc.nvim` and type 
 Install xcode:
 
     xcode-select --install
-
-Install [HCL for treesitter](https://github.com/MichaHoffmann/tree-sitter-hcl) inside vim:
-
-    :TSInstall hcl
 
 ## tips, tricks and hints
 
