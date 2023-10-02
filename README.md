@@ -28,6 +28,12 @@ git clone with submodules:
 
 Run `yarn install` inside `~/.config/nvim/pack/plugins/start/coc.nvim` and type `:CocInstall coc-go` inside neovim.
 
+## maintenance
+
+I maintain this repository using Dependabot to manage the Neovim plugins. After merging Dependabot's pull requests on the remote repository, I perform a submodule update on my *local* machines using: 
+
+    git submodule foreach --recursive git reset --hard
+
 ### MacOS
 
 Install xcode:
@@ -91,3 +97,4 @@ You can repeat your jump by pressing `;` to jump forwards and `,` to jump backwa
 |`l`|one character to the right|
 |`j`|one line down|
 |`h`|one line up|
+
