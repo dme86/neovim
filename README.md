@@ -32,7 +32,8 @@ Run `yarn install` inside `~/.config/nvim/pack/plugins/start/coc.nvim` and type 
 
 I maintain this repository using Dependabot to manage the Neovim plugins. After merging Dependabot's pull requests on the remote repository, I perform a submodule update on my *local* machines using: 
 
-    git submodule foreach --recursive git reset --hard
+    git pull
+    git submodule update --init --recursive
 
 ### MacOS
 
