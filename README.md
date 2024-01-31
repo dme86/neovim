@@ -63,6 +63,9 @@ You can repeat your jump by pressing `;` to jump forwards and `,` to jump backwa
 |Key  |Description  |
 |--|--|
 |`Shift + Alt + Arrow` (left o. right)|cycle through tabs|
+|`,vs`|virtual split of the open file|
+|`,cs`|close split|
+|`,rv`|a simple dialogue will appear, enter a number to increase/decrease the split|
 |`gc`|in **visual** mode: linewise comment|
 |`gb`|in **visual** mode: blockwise comment|
 |`,ff`|open telescope as a **file finder**|
