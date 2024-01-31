@@ -1,4 +1,3 @@
-
 # neovim
 
 This is my advanced [neovim](https://neovim.io/) configuration, written in [lua](https://www.lua.org/). It comes with [gruvbox](https://github.com/morhetz/gruvbox) and some really nice features like:
@@ -30,7 +29,7 @@ Run `yarn install` inside `~/.config/nvim/pack/plugins/start/coc.nvim` and type 
 
 ## maintenance
 
-I maintain this repository using Dependabot to manage the Neovim plugins. After merging Dependabot's pull requests on the remote repository, I perform a submodule update on my *local* machines using: 
+I maintain this repository using Dependabot to manage the Neovim plugins. After merging Dependabot's pull requests on the remote repository, I perform a submodule update on my *local* machines using:
 
     git pull
     git submodule update --init --recursive
@@ -71,6 +70,7 @@ You can repeat your jump by pressing `;` to jump forwards and `,` to jump backwa
 |`,g`|open lazygit (`Ctrl/Strg + c`) to close)|
 |`>` o. `<`|in **visual** mode: indent block by shiftwidth (repeat with `.`)|
 |`Ctrl/Strg + t` o. `Ctrl/Strg+d`|in **visual** mode: indent block by shiftwidth|
+|`,y`|selected yank into system clipboard|
 |`Shift + Ctrl/Strg + t`|toggle terminal|
 
 
@@ -98,4 +98,3 @@ You can repeat your jump by pressing `;` to jump forwards and `,` to jump backwa
 |`l`|one character to the right|
 |`j`|one line down|
 |`h`|one line up|
-
