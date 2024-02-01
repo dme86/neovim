@@ -70,3 +70,7 @@ vim.keymap.set("n", "<C-Left>", '<c-w>h', { noremap = true, silent = true })
 
 -- Key mappings for lazygit
 vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
+
+-- Moving highlightet text
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
