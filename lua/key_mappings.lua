@@ -22,11 +22,13 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
 -- Switch to the split below
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
+-- Switch to maximized and back
+vim.api.nvim_set_keymap('n', '<leader>m', '<C-w>|', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>n', '<C-w>=', { noremap = true, silent = true })
+
 
 -- Call simple resize function
 vim.api.nvim_set_keymap('n', '<leader>rv', '<cmd>lua ResizeVertical()<cr>', { noremap = true, silent = true })
-
-
 
 
 -- Key mapping for opening and closing the NvimTree file explorer

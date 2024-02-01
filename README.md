@@ -48,13 +48,40 @@ I would recommend using `j` (**down**), `k` (**up**), `h` (**left**), and `l` (*
 
 If your cursor is inside brackets or quotes, you can type `di` (**delete inside**) followed by the bracket or quote symbol to delete the content inside them.
 
-Use `t` and `f` for jumping to the next specified character. For example, typing `f` followed by `(` will place your cursor **at** the next `(`. `f` stands for "follow," while `t` will send your cursor **to** the character just *before* the specified symbol, such as the next `(`.
+Use `t` and `f` for jumping to the next specified character. For example, typing `f` followed by `(` will place your cursor **at** the next `(`. 
+`f` stands for "follow," while `t` will send your cursor **to** the character just *before* the specified symbol, such as the next `(`.
+
 You can use `F` or `T` to jump backwards from your cursor position.
 You can repeat your jump by pressing `;` to jump forwards and `,` to jump backwards.
 
 > You can always combine those commands. For example, by typing `v` to
 > enter visual mode, followed by `f` to follow and then `(`, you can
 > highlight everything from your cursor to the next `(`.
+
+### splits
+
+To open a new file in a vertical split, use nvim-tree (`Ctrl/Strg + n`) to select a file and then type `Ctrl + v`.
+
+Alternatively, if you are in the fuzzy finder (`,ff`), you can achieve the same result by pressing `Ctrl + v` to open the selected file in a vertical split.
+
+The newly opened file will appear on the left side, and the previously opened file will move to the right. To switch focus between them, utilize the default vim motions:
+
+-   `Ctrl + l`: Select the right split
+-   `Ctrl + h`: Select the left split
+
+You can interchange their positions by typing `Ctrl + w` followed by `Ctrl + r`.
+
+For efficient split management, I've remapped maximizing the selected split to `,m` and resizing it to equal proportions to `,n` (for normal size).
+
+To quickly select, copy, and paste text between splits, follow these steps:
+
+1.  Select the lines you want by entering visual-line mode with `Shift + v`.
+2.  Type `4j` to select everything from your current line down to line 4 below or use `8k` to select upwards to line number 8.
+
+Yank the selected block with `,y`, switch to the other split (`Ctrl + h` or `Ctrl + l`), and paste it with `,p`. If you want to delete the selection from the original file, type `,d`.
+
+These shortcuts and techniques facilitate a seamless workflow for navigating and managing splits in Neovim.
+
 
 ## keybindings
 
