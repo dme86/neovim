@@ -9,3 +9,6 @@ require('key_mappings')
 
 -- Load plugins
 require('plugins')
+
+-- Load LSP
+require('lsp')
