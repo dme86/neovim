@@ -14,7 +14,6 @@ require("lspconfig").lua_ls.setup({})
 -- Set up nvim-cmp.
 local cmp = require'cmp'
 
-
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -22,10 +21,12 @@ cmp.setup({
     end,
   },
   mapping = {
+    ['<C-j>'] = cmp.mapping.select_next_item(), -- next suggestion
+    ['<C-k>'] = cmp.mapping.select_prev_item(), -- previous suggestion
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.abort(),
+    ['<C-Space>'] = cmp.mapping.complete(),     -- show completion suggestions
+    ['<C-e>'] = cmp.mapping.abort(),            -- close completion suggestions
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
   },
   sources = {
