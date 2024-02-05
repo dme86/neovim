@@ -20,6 +20,10 @@ cmp.setup({
        require('luasnip').lsp_expand(args.body) -- For luasnip users.
     end,
   },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
   mapping = {
     ['<C-j>'] = cmp.mapping.select_next_item(), -- next suggestion
     ['<C-k>'] = cmp.mapping.select_prev_item(), -- previous suggestion
@@ -32,8 +36,6 @@ cmp.setup({
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' }, -- For luasnip users.
-    -- { name = 'ultisnips' }, -- For ultisnips users.
-    -- { name = 'snippy' }, -- For snippy users.
     { name = 'buffer' },
   },
   completion = {
@@ -70,8 +72,3 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' },
   },
 })
-
--- Set up lspconfig.
-
-
--- Replace '<YOUR_LSP_SERVER>' with the specific LSP server you're using.
