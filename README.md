@@ -1,9 +1,9 @@
 # neovim
 
 This is my advanced [neovim](https://neovim.io/) configuration, written in [lua](https://www.lua.org/). It comes with [gruvbox](https://github.com/morhetz/gruvbox) and some really nice features like:
-| Tabs & Source Tree | Fuzzy Finder | Toggle Terminal|
+| Code Completion | Fuzzy Finder | Toggle Terminal|
 |--|--|--|
-| ![enter image description here](https://i.imgur.com/NaalKtO.png) | ![enter image description here](https://i.imgur.com/zDb5YFK.png) | ![enter image description here](https://i.imgur.com/9guCN8L.png) |![enter image description here](https://i.imgur.com/x8DZLsi.png) |
+| ![enter image description here](https://i.imgur.com/CNV5BB5.png) | ![enter image description here](https://i.imgur.com/zDb5YFK.png) | ![enter image description here](https://i.imgur.com/9guCN8L.png) |![enter image description here](https://i.imgur.com/x8DZLsi.png) |
 
 | lazygit ([Tutorial](https://dme86.github.io/2023/08/15/Lazygit-tutorial/)) |
 |--|
@@ -15,8 +15,6 @@ This is my advanced [neovim](https://neovim.io/) configuration, written in [lua]
 
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [lazygit](https://github.com/jesseduffield/lazygit)
-- [node](https://nodejs.org/en)
-- [yarn](https://yarnpkg.com/)
 
 ## installation
 
@@ -24,8 +22,6 @@ git clone with submodules:
 
     cd ~/.config/
     git clone --recurse-submodules git@github.com:dme86/neovim.git nvim
-
-Run `yarn install` inside `~/.config/nvim/pack/plugins/start/coc.nvim` and type `:CocInstall coc-go` inside neovim.
 
 ## maintenance
 
@@ -60,7 +56,7 @@ You can repeat your jump by pressing `;` to jump forwards and `,` to jump backwa
 
 ### splits
 
-To open a new file in a vertical split, use nvim-tree (`Ctrl/Strg + n`) to select a file and then type `Ctrl + v`.
+To open a new file in a vertical split, use nvim-tree (`Ctrl/Strg + n`) to select a file and then type `s`.
 
 Alternatively, if you are in the fuzzy finder (`,ff`), you can achieve the same result by pressing `Ctrl + v` to open the selected file in a vertical split.
 
@@ -68,6 +64,7 @@ The newly opened file will appear on the left side, and the previously opened fi
 
 -   `Ctrl + l`: Select the right split
 -   `Ctrl + h`: Select the left split
+-   `Ctrl + w + w` Toggle
 
 You can interchange their positions by typing `Ctrl + w` followed by `Ctrl + r`.
 
@@ -89,14 +86,16 @@ These shortcuts and techniques facilitate a seamless workflow for navigating and
 
 |Key  |Description  |
 |--|--|
-|`Shift + Alt + Arrow` (left o. right)|cycle through tabs|
 |`,vs`|virtual split of the open file|
 |`,cs`|close split|
 |`,rv`|a simple dialogue will appear, enter a number to increase/decrease the split|
+|`,m`|Maximize split|
+|`,n`|Normalize split|
 |`gc`|in **visual** mode: linewise comment|
 |`gb`|in **visual** mode: blockwise comment|
 |`,ff`|open telescope as a **file finder**|
 |`,fg`|open telescope as **live grep**|
+|`,fb`|open telescope as a **buffer switch**|
 |`,g`|open lazygit (`Ctrl/Strg + c`) to close)|
 |`>` o. `<`|in **visual** mode: indent block by shiftwidth (repeat with `.`)|
 |`Ctrl/Strg + t` o. `Ctrl/Strg+d`|in **visual** mode: indent block by shiftwidth|
@@ -105,18 +104,16 @@ These shortcuts and techniques facilitate a seamless workflow for navigating and
 |`Ctrl/Strg + j`|*LSP*: next suggestion||`Ctrl/Strg + j`|*LSP*: next suggestion|
 |`Ctrl/Strg + k`|*LSP*: previous suggestion|
 |`Ctrl/Strg + e`|*LSP*: close completition suggestions|
-|`ENTER` (while in suggestion|*LSP*: confirm suggestion|
-|`Ctrl/Strg + k`|*LSP*: previous suggestion|
-|`Ctrl/Strg + e`|*LSP*: close completition suggestions|
-|`ENTER` (while in suggestion|*LSP*: confirm suggestion|
+|`ENTER` (while in suggestion)|*LSP*: confirm suggestion|
 
 
-### nvim-tree
+### neotree
 
 |Key  |Description  |
 |--|--|
 |`Ctrl/Strg + n` |open/close tree view |
-|`Ctrl/Strg + Arrow` (left o. right)|focus on tree / file view|
+|`Ctrl/Strg + h / l` (left o. right)|focus on tree / file view|
+|`s`|open file as vertical split|
 |`a`|(add) create a new file|
 |`r`|(rename) to rename the selected file from the original name|
 |`d`|(delete) to delete the selected file or in case of a folder delete the folder with all its contents|

@@ -108,6 +108,19 @@ require'nvim-treesitter.configs'.setup {
 
 -- This is your opts table (telescope ui-select)
 require("telescope").setup {
+    pickers = {
+    buffers= {
+      theme = "dropdown",
+      previewer = false,
+      prompt_title = "Switch open files"
+    },
+    find_files = {
+      prompt_title = "Search files"
+    },
+    live_grep = {
+      prompt_title = "Live grep"
+    }
+  },
   extensions = {
     ["ui-select"] = {
       require("telescope.themes").get_dropdown {
