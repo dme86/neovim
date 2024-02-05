@@ -48,7 +48,7 @@ I would recommend using `j` (**down**), `k` (**up**), `h` (**left**), and `l` (*
 
 If your cursor is inside brackets or quotes, you can type `di` (**delete inside**) followed by the bracket or quote symbol to delete the content inside them.
 
-Use `t` and `f` for jumping to the next specified character. For example, typing `f` followed by `(` will place your cursor **at** the next `(`. 
+Use `t` and `f` for jumping to the next specified character. For example, typing `f` followed by `(` will place your cursor **at** the next `(`.
 `f` stands for "follow," while `t` will send your cursor **to** the character just *before* the specified symbol, such as the next `(`.
 
 You can use `F` or `T` to jump backwards from your cursor position.
@@ -102,6 +102,13 @@ These shortcuts and techniques facilitate a seamless workflow for navigating and
 |`Ctrl/Strg + t` o. `Ctrl/Strg+d`|in **visual** mode: indent block by shiftwidth|
 |`,y`|selected yank into system clipboard|
 |`Shift + Ctrl/Strg + t`|toggle terminal|
+|`Ctrl/Strg + j`|*LSP*: next suggestion||`Ctrl/Strg + j`|*LSP*: next suggestion|
+|`Ctrl/Strg + k`|*LSP*: previous suggestion|
+|`Ctrl/Strg + e`|*LSP*: close completition suggestions|
+|`ENTER` (while in suggestion|*LSP*: confirm suggestion|
+|`Ctrl/Strg + k`|*LSP*: previous suggestion|
+|`Ctrl/Strg + e`|*LSP*: close completition suggestions|
+|`ENTER` (while in suggestion|*LSP*: confirm suggestion|
 
 
 ### nvim-tree
