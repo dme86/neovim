@@ -14,6 +14,7 @@ vim.opt.termguicolors = true
 
 -- require("nvim-tree").setup({
 require("nvim-tree").setup({
+  select_prompts = true,
   sort_by = "case_sensitive",
   view = {
     width = 30,
@@ -25,6 +26,7 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
 })
+
 
 -- toggleterm / toggle via Shift + Alt + t
 require'toggleterm'.setup {
@@ -125,3 +127,14 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+-- This is your opts table (telescope ui-select)
+require("telescope").setup {
+  extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {
+      }
+    }
+  }
+}
+require("telescope").load_extension("ui-select")
