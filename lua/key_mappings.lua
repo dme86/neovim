@@ -128,4 +128,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, {}) -- hover info from buffer (Shift+K)
 
-vim.keymap.set('n', '<leader>gf', vim.lsp.buf.format, {}) -- enable formatting via (<leader>gf)
+vim.keymap.set('n', '<leader>l', vim.lsp.buf.format, {}) -- enable formatting/linting via (<leader>l)

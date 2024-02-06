@@ -5,7 +5,21 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	callback = function()
 		vim.lsp.buf.format()
 	end,
+}) -- BE AWARE: https://github.com/hashicorp/terraform-ls/issues/57
+
+local lspconfig = require("lspconfig")
+lspconfig.gopls.setup({
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+      gofumpt = true,
+    },
+  },
 })
+
 -- javascript
 require 'lspconfig'.tsserver.setup {}
 -- lua
