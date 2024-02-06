@@ -7,7 +7,6 @@ require('functions')
 -- Load key mappings
 require('key_mappings')
 
-
 -- Load plugins
 require('plugins')
 
@@ -16,3 +15,6 @@ require('neotree')
 
 -- Load LSP
 require('lsp')
+
+-- Load gitsigns
+require('git')
