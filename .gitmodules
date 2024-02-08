@@ -22,6 +22,10 @@
 	path = pack/plugins/start/telescope.nvim
 	url = https://github.com/nvim-telescope/telescope.nvim
 	ignore = dirty
+[submodule "pack/plugins/start/telescope-ui-select.nvim"]
+	path = pack/plugins/start/telescope-ui-select.nvim
+	url = https://github.com/nvim-telescope/telescope-ui-select.nvim
+	ignore = dirty
 [submodule "pack/plugins/start/gruvbox"]
 	path = pack/plugins/start/gruvbox
 	url = https://github.com/morhetz/gruvbox
@@ -73,4 +77,20 @@
 [submodule "pack/plugins/start/nvim-cmp"]
 	path = pack/plugins/start/nvim-cmp
 	url = https://github.com/hrsh7th/nvim-cmp.git
+	ignore = dirty
+[submodule "pack/plugins/start/neo-tree"]
+	path = pack/plugins/start/neo-tree.nvim
+	url = https://github.com/nvim-neo-tree/neo-tree.nvim
+	ignore = dirty
+[submodule "pack/plugins/start/none-ls"]
+	path = pack/plugins/start/none-ls.nvim
+	url = https://github.com/nvimtools/none-ls.nvim
+	ignore = dirty
+[submodule "pack/plugins/start/nui"]
+	path = pack/plugins/start/nui.nvim
+        url = https://github.com/MunifTanjim/nui.nvim
+        ignore = dirty
+[submodule "pack/plugins/start/gitsigns"]
+	path = pack/plugins/start/gitsigns.nvim
+	url = https://github.com/lewis6991/gitsigns.nvim
 	ignore = dirty
