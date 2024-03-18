@@ -62,13 +62,13 @@ Alternatively, if you are in the fuzzy finder (`,ff`), you can achieve the same 
 
 The newly opened file will appear on the left side, and the previously opened file will move to the right. To switch focus between them, utilize the default vim motions:
 
--   `Ctrl + l`: Select the right split
--   `Ctrl + h`: Select the left split
+-   `Ctrl + l`: Select the left split
+-   `Ctrl + h`: Select the right split
 -   `Ctrl + w + w` Toggle
 
 You can interchange their positions by typing `Ctrl + w` followed by `Ctrl + r`.
 
-For efficient split management, I've remapped maximizing the selected split to `,m` and resizing it to equal proportions to `,n` (for normal size).
+For efficient split management, I've remapped maximizing the selected split to `,m` (maximize) and resizing it to equal proportions to `,n` (for normal size).
 
 To quickly select, copy, and paste text between splits, follow these steps:
 
@@ -99,7 +99,7 @@ These shortcuts and techniques facilitate a seamless workflow for navigating and
 |`,g`|open lazygit (`Ctrl/Strg + c`) to close)|
 |`>` o. `<`|in **visual** mode: indent block by shiftwidth (repeat with `.`)|
 |`Ctrl/Strg + t` o. `Ctrl/Strg+d`|in **visual** mode: indent block by shiftwidth|
-|`,y`|selected yank into system clipboard|
+|`,y`|selected yank into [system clipboard](https://archlinux.org/packages/extra/x86_64/xclip/)|
 |`Shift + Ctrl/Strg + t`|toggle terminal|
 |`Ctrl/Strg + j`|*LSP*: next suggestion||`Ctrl/Strg + j`|*LSP*: next suggestion|
 |`Ctrl/Strg + k`|*LSP*: previous suggestion|
@@ -121,7 +121,7 @@ These shortcuts and techniques facilitate a seamless workflow for navigating and
 |`f`|(find) to open the interactive file search to which search filters can be applied. `F` to close|
 |`Ctrl/Strg + k`|display information about the file such as size, creation date, etc.|
 
-### (neo)vim  in general
+### (neo)vim  in general - normal-mode
 
 |Key  |Description  |
 |--|--|
@@ -131,4 +131,23 @@ These shortcuts and techniques facilitate a seamless workflow for navigating and
 |`h`|one character to the left|
 |`l`|one character to the right|
 |`j`|one line down|
-|`h`|one line up|
+|`k`|one line up|
+|`)`|jump to beginning of next sentence|
+|`(`|jump to beginning of previous sentence|
+|`vas`|select a sentence|
+|`das`|delete a sentence|
+
+### using marks
+
+|Key  |Description  |
+|--|--|
+|`m[a-zA-Z]`|set a mark. lowercase will be set for this file, uppercase will be accessible from other files as well.|
+|`'[a-zA-Z]`|jump to the line from that mark|
+|`` `[a-zA-Z]``| jump to the line & column from that mark|
+|`` `.``|jump to position where last change occurred in current buffer|
+|`''`|jump back (to line in current buffer where jumped from)|
+|**``**|jump back (to position in current buffer where jumped from)|
+
+because of a german keyboard i remapped my backtick **`** to ß:
+
+    vim.api.nvim_set_keymap('n', 'ß', '`', { noremap = true })
