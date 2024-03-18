@@ -9,6 +9,12 @@ vim.keymap.set({ 'n', 'v' }, '<leader>D', '"+D') -- delete line
 vim.keymap.set('n', '<leader>p', '"+p')        -- paste after cursor
 vim.keymap.set('n', '<leader>P', '"+P')        -- paste before cursor
 
+-- Define a normal mode mapping for the `ß` 
+vim.api.nvim_set_keymap('n', 'ß', '`', { noremap = true })
+
+-- jump back to last file (buffer) via backspace
+vim.api.nvim_set_keymap('n', '<bs>', '<c-^>\'”zz', { silent = true, noremap = true })
+
 -- SPLITS
 -- Map the key combination <leader>vs to split the current file vertically
 vim.api.nvim_set_keymap('n', '<leader>vs', ':vsplit %<CR>', { noremap = true, silent = true })
