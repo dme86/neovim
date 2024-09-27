@@ -6,3 +6,7 @@ updates:
       interval: "monthly"
     assignees:
        - "dme86"
+
+on:
+  schedule:
+    - cron: '0 0 1 * *' # This will run monthly
