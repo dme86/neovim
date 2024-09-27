@@ -1,3 +1,7 @@
+[submodule "pack/plugins/start/vifm.vim"]
+	path = pack/plugins/start/vifm.vim
+	url = https://github.com/vifm/vifm.vim.git
+	ignore = dirty
 [submodule "pack/plugins/start/barbar.nvim"]
 	path = pack/plugins/start/barbar.nvim
 	url = https://github.com/romgrk/barbar.nvim
