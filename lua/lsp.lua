@@ -1,11 +1,4 @@
--- terraform
-require 'lspconfig'.terraformls.setup {}
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-	pattern = { "*.tf", "*.tfvars" },
-	callback = function()
-		vim.lsp.buf.format()
-	end,
-}) -- BE AWARE: https://github.com/hashicorp/terraform-ls/issues/57
+require'lspconfig'.terraformls.setup{}
 
 local lspconfig = require("lspconfig")
 lspconfig.gopls.setup({
