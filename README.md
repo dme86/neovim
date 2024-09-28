@@ -147,6 +147,8 @@ These shortcuts and techniques facilitate a seamless workflow for navigating and
 |`` `.``|jump to position where last change occurred in current buffer|
 |`''`|jump back (to line in current buffer where jumped from)|
 |**``**|jump back (to position in current buffer where jumped from)|
+|`Ctrl/Strg` + o|jump to the last buffer|
+|`Ctrl/Strg` + i|jump to the next buffer|
 
 because of a german keyboard i remapped my backtick **`** to ß:
 
