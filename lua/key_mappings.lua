@@ -44,8 +44,11 @@ vim.keymap.set('n', '<C-n>', ':Neotree toggle<CR>', { noremap = true, silent = t
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { noremap = true, silent = true })
 
--- Key mapping for saving the current buffer
+-- Key mapping for saving, closing and save+close the current buffer
 vim.keymap.set('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Leader>q', ':q<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Leader>x', ':x<CR>', { noremap = true, silent = true })
+
 
 -- Key mapping for searching with Telescope
 vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { noremap = true })

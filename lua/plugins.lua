@@ -18,6 +18,16 @@ require'toggleterm'.setup {
   shade_terminals = false,
   close_on_exit = true,
   direction = 'float',
+    float_opts = {
+    border = "curved", -- single | double | curved
+    winblend = 0,
+  },
+  persist_mode = true,
+  highlights = {
+    FloatBorder = {
+      guifg = "#059de3",
+    },
+  },
 }
 
 local Terminal  = require('toggleterm.terminal').Terminal
