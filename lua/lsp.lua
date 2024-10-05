@@ -1,5 +1,3 @@
-require'lspconfig'.terraformls.setup{}
-
 local lspconfig = require("lspconfig")
 lspconfig.gopls.setup({
   settings = {
@@ -32,10 +30,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end
 })
 
--- javascript
-require 'lspconfig'.tsserver.setup {}
+-- terraform
+require('lspconfig').ts_ls.setup({})
 -- lua
-require("lspconfig").lua_ls.setup({})
+-- require("lspconfig").lua_ls.setup({})
+local lspconfig = require('lspconfig')
 
 -- Set up nvim-cmp.
 local cmp = require 'cmp'
