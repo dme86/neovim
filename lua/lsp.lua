@@ -32,9 +32,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 -- terraform
 require('lspconfig').ts_ls.setup({})
--- lua
 -- require("lspconfig").lua_ls.setup({})
-local lspconfig = require('lspconfig')
+require'lspconfig'.helm_ls.setup{}
 
 -- Set up nvim-cmp.
 local cmp = require 'cmp'
@@ -46,8 +45,16 @@ cmp.setup({
 		end,
 	},
 	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
+		completion = cmp.config.window.bordered(
+		{
+		  border = "none",
+		  side_padding = 0,
+		}),
+		documentation = cmp.config.window.bordered(
+                {
+		  border = "none",
+		  side_padding = 0,
+		}),
 	},
 	mapping = {
 		["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }), -- previous suggestion
@@ -64,7 +71,7 @@ cmp.setup({
 		{ name = 'buffer' },
 	},
 	completion = {
-		completeopt = 'menu,menuone,noinsert',
+		completeopt = 'menu,menuone,noselect',
 	},
 	formatting = {
 		format = function(entry, vim_item)
