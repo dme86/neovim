@@ -25,10 +25,17 @@ git clone with submodules:
 
 ## maintenance
 
-I maintain this repository using Dependabot to manage the Neovim plugins. After merging Dependabot's pull requests on the remote repository, I perform a submodule update on my *local* machines using:
+I maintain Neovim plugins manually. I open a feature branch and run 
+`git submodule update --remote --merge` 
+(this fetches and merges the submodules). 
+Then, I open vim and fix any bugs if necessary by running 
+`:checkhealth` 
+Sometimes, I need to run 
+`:TSUpdate` 
+to reinstall parsers from treesitter. 
 
-    git pull
-    git submodule update --init --recursive
+I'll work on the feature branch for a few days before merging it into main.
+
 
 ### MacOS
 
@@ -68,7 +75,7 @@ The newly opened file will appear on the left side, and the previously opened fi
 
 You can interchange their positions by typing `Ctrl + w` followed by `Ctrl + r`.
 
-For efficient split management, I've remapped maximizing the selected split to `,m` (maximize) and resizing it to equal proportions to `,n` (for normal size).
+For efficient split management, I've remapped maximizing(zoom) the selected split to `,m` (maximize) and resizing it to equal proportions to `,n` (for normal size).
 
 To quickly select, copy, and paste text between splits, follow these steps:
 
@@ -112,7 +119,9 @@ These shortcuts and techniques facilitate a seamless workflow for navigating and
 |Key  |Description  |
 |--|--|
 |`Ctrl/Strg + n` |open/close tree view |
+|`Backspace` |1 dir higher (``cd ..``) |
 |`Ctrl/Strg + h / l` (left o. right)|focus on tree / file view|
+|`Shift + H`|show/hide hidden files|
 |`s`|open file as vertical split|
 |`a`|(add) create a new file|
 |`r`|(rename) to rename the selected file from the original name|
@@ -127,7 +136,7 @@ These shortcuts and techniques facilitate a seamless workflow for navigating and
 |--|--|
 |`_`|go to first character|
 |`$`|go to last character|
-|`0`|go to beginning character|
+|`0`|go to beginning of line|
 |`h`|one character to the left|
 |`l`|one character to the right|
 |`j`|one line down|
@@ -153,3 +162,4 @@ These shortcuts and techniques facilitate a seamless workflow for navigating and
 because of a german keyboard i remapped my backtick **`** to ß:
 
     vim.api.nvim_set_keymap('n', 'ß', '`', { noremap = true })
+
