@@ -1,5 +1,4 @@
 -- global settings
-vim.g.mapleader = ","
 local opt = vim.opt
 opt.number = true
 opt.relativenumber = true
@@ -10,4 +9,3 @@ opt.cursorline = true
 opt.showmode = false
 opt.shiftwidth = 2
 opt.smartindent = true
-vim.cmd('colorscheme gruvbox')

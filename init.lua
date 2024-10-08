@@ -1,20 +1,4 @@
--- Load global settings
-require('global_settings')
-
--- Load functions
-require('functions')
-
--- Load key mappings
-require('key_mappings')
-
--- Load plugins
-require('plugins')
-
--- Load neotree
-require('neotree')
-
--- Load LSP
-require('lsp')
-
--- Load gitsigns
-require('git')
+-- This is the init file, it loads settings and plugin config.
+require('config.settings')
+require("config.lazy")
+require('config.key_mappings')
