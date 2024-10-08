@@ -10,7 +10,6 @@ return {
       require('lspconfig').gopls.setup{
         capabilities = require('cmp_nvim_lsp').default_capabilities()
       }
-
       -- You can add more LSP servers here, e.g.
       -- require('lspconfig').pyright.setup{
       --   capabilities = require('cmp_nvim_lsp').default_capabilities()
