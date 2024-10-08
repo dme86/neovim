@@ -2,6 +2,21 @@ return {
   {
     "hrsh7th/cmp-nvim-lsp"
   },
+
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      -- Setup language servers here
+      require('lspconfig').gopls.setup{
+        capabilities = require('cmp_nvim_lsp').default_capabilities()
+      }
+      -- You can add more LSP servers here, e.g.
+      -- require('lspconfig').pyright.setup{
+      --   capabilities = require('cmp_nvim_lsp').default_capabilities()
+      -- }
+    end,
+  },
+
   {
     "L3MON4D3/LuaSnip",
     dependencies = {
@@ -37,7 +52,6 @@ return {
         sources = cmp.config.sources({
 	  { name = "luasnip" }, -- For luasnip users.
           { name = "nvim_lsp" },
-        }, {
           { name = "buffer" },
         }),
       })
