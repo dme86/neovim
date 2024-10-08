@@ -17,31 +17,11 @@ This is my advanced [neovim](https://neovim.io/) configuration, written in [lua]
 - [lazygit](https://github.com/jesseduffield/lazygit)
 
 ## installation
-
-git clone with submodules:
-
-    cd ~/.config/
-    git clone --recurse-submodules git@github.com:dme86/neovim.git nvim
+todo
 
 ## maintenance
+todo
 
-I maintain Neovim plugins manually. I open a feature branch and run 
-`git submodule update --remote --merge` 
-(this fetches and merges the submodules). 
-Then, I open vim and fix any bugs if necessary by running 
-`:checkhealth` 
-Sometimes, I need to run 
-`:TSUpdate` 
-to reinstall parsers from treesitter. 
-
-I'll work on the feature branch for a few days before merging it into main.
-
-
-### MacOS
-
-Install xcode:
-
-    xcode-select --install
 
 ## tips, tricks and hints
 
