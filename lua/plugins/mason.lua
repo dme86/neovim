@@ -14,10 +14,23 @@ return {
 	"gopls",
 	"jsonls",
 	"marksman", -- markdown
-	"terraformls"
+	"terraformls",
+	"dockerls",
+	"yamlls"
       },
       automatic_installation = true,
     })
+
+    -- Setup lspconfig for specific servers
+    require('lspconfig').lua_ls.setup{}
+    require('lspconfig').bashls.setup{}
+    require('lspconfig').helm_ls.setup{}
+    require('lspconfig').gopls.setup{}
+    require('lspconfig').jsonls.setup{}
+    require('lspconfig').marksman.setup{}
+    require('lspconfig').terraformls.setup{}
+    require('lspconfig').dockerls.setup{}
+    require('lspconfig').yamlls.setup{}
   end,
 }
 
