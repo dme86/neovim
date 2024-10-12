@@ -13,8 +13,7 @@ vim.keymap.set('n', '<leader>P', '"+P')        -- paste before cursor
 vim.api.nvim_set_keymap('n', 'ß', '`', { noremap = true })
 
 -- jump back to last file (buffer) via backspace
-vim.api.nvim_set_keymap('n', '<bs>', '<c-^>\'”zz', { silent = true, noremap = true })
-
+vim.api.nvim_set_keymap('n', '<bs>', '<c-^>', { silent = true, noremap = true })
 
 -- SPLITS
 -- Map the key combination <leader>vs to split the current file vertically

@@ -1,26 +1,55 @@
 # neovim
 
-This is my advanced [neovim](https://neovim.io/) configuration, written in [lua](https://www.lua.org/). It comes with [gruvbox](https://github.com/morhetz/gruvbox) and some really nice features like:
-| Code Completion | Fuzzy Finder | Toggle Terminal|
-|--|--|--|
-| ![enter image description here](https://i.imgur.com/CNV5BB5.png) | ![enter image description here](https://i.imgur.com/zDb5YFK.png) | ![enter image description here](https://i.imgur.com/9guCN8L.png) |![enter image description here](https://i.imgur.com/x8DZLsi.png) |
+This is my advanced [Neovim](https://neovim.io/) configuration, written in [Lua](https://www.lua.org/). It includes the [Gruvbox](https://github.com/morhetz/gruvbox) color scheme and offers several great features, such as:
 
-| lazygit ([Tutorial](https://dme86.github.io/2023/08/15/Lazygit-tutorial/)) |
+| Lazygit ([Tutorial](https://dme86.github.io/2023/08/15/Lazygit-tutorial/)) |
 |--|
-|![enter image description here](https://i.imgur.com/PqPbvJC.png)  |
+|![](https://i.imgur.com/SncriXW.png)  | 
 
+| Code completion |
+|--|
+|![](https://i.imgur.com/htDBmEJ.png)  |
 
+| Fuzzy finder and file switcher |
+|--|
+|![](https://i.imgur.com/prd4CU3.png)  |
+
+| File tree with split view |
+|--|
+|![](https://i.imgur.com/b5VofIG.png)  |
+
+| Plugin management |
+|--|
+|![](https://i.imgur.com/wQI9C9t.png)  |
+
+| Language Server management |
+|--|
+|![](https://i.imgur.com/QkZhEHh.png)  |
+
+What I appreciate most about my Neovim setup compared to other IDEs is its simplicity. It doesn't come with unnecessary features, allowing me to tailor it precisely to my needs. For instance, I can easily configure keybindings, enabling me to hide or display Lazygit with just a few keystrokes.
+The fact that everything is integrated into my muscle memory and that I can work entirely without a mouse significantly accelerates my workflow. 
+
+As a power user, I also appreciate that these open-source tools are highly customizable. They allow you to craft an IDE or editor that truly fits your unique workflow — it's not a one-size-fits-all solution, but rather a creation that's entirely your own.
 
 ## dependencies
 
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [lazygit](https://github.com/jesseduffield/lazygit)
+- [fd](https://github.com/sharkdp/fd)
 
 ## installation
-todo
+
+After installing Neovim on your system, you need to clone this repository (Use `--depth 1` to clone without the full history) into your Neovim configuration directory. For example:
+```shell 
+git clone --depth 1 git@github.com:dme86/neovim.git ~/.config/nvim
+```
+
+If for some reason the plugins don't install automatically, you can run the `:Lazy sync` command to ensure that all your plugins are installed and up to date. 
+Run `:TSUpdate` to update the Treesitter parsers, and use `:Mason` to install or update the language servers.
 
 ## maintenance
-todo
+
+With [Lazy](https://github.com/folke/lazy.nvim) as a plugin manager, maintenance is minimal. It notifies you at the start of Neovim if any plugins need updates. You can simply run `:Lazy`, switch to the Updates tab, and it will update them automatically.
 
 
 ## tips, tricks and hints
@@ -78,12 +107,15 @@ These shortcuts and techniques facilitate a seamless workflow for navigating and
 |`,rv`|a simple dialogue will appear, enter a number to increase/decrease the split|
 |`,m`|Maximize split|
 |`,n`|Normalize split|
+|`,w`|Write file|
+|`,q`|Close file|
+|`,x`|Write and close file|
 |`gc`|in **visual** mode: linewise comment|
 |`gb`|in **visual** mode: blockwise comment|
 |`,ff`|open telescope as a **file finder**|
 |`,fg`|open telescope as **live grep**|
 |`,fb`|open telescope as a **buffer switch**|
-|`,g`|open lazygit (`Ctrl/Strg + c`) to close)|
+|`,g`|open lazygit (`Ctrl/Strg + c` or `q`) to close)|
 |`>` o. `<`|in **visual** mode: indent block by shiftwidth (repeat with `.`)|
 |`Ctrl/Strg + t` o. `Ctrl/Strg+d`|in **visual** mode: indent block by shiftwidth|
 |`,y`|selected yank into [system clipboard](https://archlinux.org/packages/extra/x86_64/xclip/)|
@@ -92,6 +124,7 @@ These shortcuts and techniques facilitate a seamless workflow for navigating and
 |`Ctrl/Strg + k`|*LSP*: previous suggestion|
 |`Ctrl/Strg + e`|*LSP*: close completition suggestions|
 |`ENTER` (while in suggestion)|*LSP*: confirm suggestion|
+|`BACKSPACE` (normal mode)|Jump tho the last buffer|
 
 
 ### neotree
