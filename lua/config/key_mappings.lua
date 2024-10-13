@@ -15,6 +15,16 @@ vim.api.nvim_set_keymap('n', 'ß', '`', { noremap = true })
 -- jump back to last file (buffer) via backspace
 vim.api.nvim_set_keymap('n', '<bs>', '<c-^>', { silent = true, noremap = true })
 
+-- Map J to PageDown
+vim.api.nvim_set_keymap('n', 'J', '<PageDown>', { noremap = true, silent = true })
+-- Map K to PageUp
+vim.api.nvim_set_keymap('n', 'K', '<PageUp>', { noremap = true, silent = true })
+-- Map Z to zz (center the cursor line)
+vim.api.nvim_set_keymap('n', 'Z', 'zz', { noremap = true, silent = true })
+
+-- Toggle ZenMode
+vim.api.nvim_set_keymap('n', '<leader>zm', ':ZenMode<CR>', { noremap = true, silent = true })
+
 -- SPLITS
 -- Map the key combination <leader>vs to split the current file vertically
 vim.api.nvim_set_keymap('n', '<leader>vs', ':vsplit %<CR>', { noremap = true, silent = true })

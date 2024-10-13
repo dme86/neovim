@@ -110,6 +110,7 @@ These shortcuts and techniques facilitate a seamless workflow for navigating and
 |`,w`|Write file|
 |`,q`|Close file|
 |`,x`|Write and close file|
+|`,zm`|(De)Activate zen-mode|
 |`gc`|in **visual** mode: linewise comment|
 |`gb`|in **visual** mode: blockwise comment|
 |`,ff`|open telescope as a **file finder**|
