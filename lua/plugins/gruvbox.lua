@@ -21,7 +21,10 @@ return {
       invert_intend_guides = false,
       inverse = true, -- Invert background for search, diffs, statuslines, and errors
       contrast = "", -- Can be "hard", "soft" or empty string
-      palette_overrides = {},
+      palette_overrides = {
+        -- Override background to normal black
+        dark0 = "#000000",
+      },
       overrides = {},
       dim_inactive = false,
       transparent_mode = false,
