@@ -40,6 +40,18 @@ As a power user, I also appreciate that these open-source tools are highly custo
 - [go](https://github.com/golang/go)
 - [unzip](https://archlinux.org/packages/extra/x86_64/unzip/)
 
+### macOS
+
+```shell
+brew install neovim ripgrep lazygit fd npm go unzip
+```
+
+### Arch
+
+```shell
+pacman -S neovim ripgrep lazygit fd npm go unzip
+```
+
 ## installation
 
 After installing Neovim on your system, you need to clone this repository (Use `--depth 1` to clone without the full history) into your Neovim configuration directory. For example:
@@ -179,4 +191,5 @@ These shortcuts and techniques facilitate a seamless workflow for navigating and
 because of a german keyboard i remapped my backtick **`** to ß:
 
     vim.api.nvim_set_keymap('n', 'ß', '`', { noremap = true })
+
 
