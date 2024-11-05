@@ -36,6 +36,9 @@ As a power user, I also appreciate that these open-source tools are highly custo
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [lazygit](https://github.com/jesseduffield/lazygit)
 - [fd](https://github.com/sharkdp/fd)
+- [npm](https://github.com/npm)
+- [go](https://github.com/golang/go)
+- [unzip](https://archlinux.org/packages/extra/x86_64/unzip/)
 
 ## installation
 
