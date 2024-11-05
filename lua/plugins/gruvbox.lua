@@ -23,7 +23,7 @@ return {
       contrast = "", -- Can be "hard", "soft" or empty string
       palette_overrides = {
         -- Override background to normal black
-        dark0 = "#000000",
+        -- dark0 = "#000000",
       },
       overrides = {},
       dim_inactive = false,
