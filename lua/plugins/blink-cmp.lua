@@ -1,7 +1,7 @@
 return {
   'saghen/blink.cmp',
   lazy = false, -- lazy loading handled internally
-  version = 'v0.5.1', -- use a release tag to download pre-built binaries
+  version = 'v0.6.1', -- use a release tag to download pre-built binaries
   opts = {
     nerd_font_variant = 'mono',
 
