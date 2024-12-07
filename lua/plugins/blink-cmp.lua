@@ -1,42 +1,86 @@
 return {
   'saghen/blink.cmp',
   lazy = false, -- lazy loading handled internally
-  version = 'v0.6.1', -- use a release tag to download pre-built binaries
+  dependencies = 'rafamadriz/friendly-snippets',
+  version = 'v0.7.3',
+
   opts = {
-    nerd_font_variant = 'mono',
+    keymap = {
+      preset = 'super-tab',
+      mappings = {
+        ['<C-space>'] = 'show',
+        ['<C-e>'] = 'hide',
+      },
+    },
 
-    accept = { auto_brackets = { enabled = true } },
-    trigger = { signature_help = { enabled = true } },
+    appearance = {
+      use_nvim_cmp_as_default = true,
+      nerd_font_variant = 'mono',
+    },
 
-      keymap = {
-        preset = 'default', -- Verwende ein Preset für Tastenkombinationen
-        mappings = {
-          ['<C-space>'] = 'show',
-          ['<C-e>'] = 'hide',
-          ['<C-CR>'] = 'accept',
-        },
+    sources = {
+      completion = {
+        enabled_providers = { 'lsp', 'path', 'snippets', 'buffer' },
+      },
+    },
+
+    completion = {
+      accept = {
+        auto_brackets = { enabled = true },
       },
 
-    windows = {
-      autocomplete = {
+      -- 'menu' controls the main completion window
+      menu = {
+        auto_show = true,
+        border = 'rounded', -- set a rounded border here
         min_width = 20,
         max_width = 40,
         max_height = 15,
-        border = 'rounded',
-        scrolloff = 2,
+        winblend = 0,
+        winhighlight = 'Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None',
+        scrollbar = false,
         direction_priority = { 's', 'n' },
+        scrolloff = 2,
       },
+
+      -- 'documentation' controls the documentation window for completion items
       documentation = {
-        min_width = 15,
-        max_width = 50,
-        max_height = 20,
-	auto_show = true,
-        border = 'rounded',
-        direction_priority = {
-          autocomplete_north = { 'e', 'w', 'n', 's' },
-          autocomplete_south = { 'e', 'w', 's', 'n' },
+        auto_show = true,
+        auto_show_delay_ms = 500,
+        update_delay_ms = 50,
+        treesitter_highlighting = true,
+        window = {
+          min_width = 10,
+          max_width = 60,
+          max_height = 20,
+          border = 'rounded', -- set a rounded border for documentation
+          winblend = 0,
+          winhighlight = 'Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None',
+          scrollbar = true,
+          direction_priority = {
+            menu_north = { 'e', 'w', 'n', 's' },
+            menu_south = { 'e', 'w', 's', 'n' },
+          },
         },
       },
     },
+
+    signature = {
+      enabled = true,
+      window = {
+        min_width = 20,
+        max_width = 40,
+        max_height = 15,
+        border = 'rounded', -- set a rounded border for the signature help window
+        winblend = 0,
+        winhighlight = 'Normal:BlinkCmpSignatureHelp,FloatBorder:BlinkCmpSignatureHelpBorder',
+        scrollbar = false,
+        direction_priority = { 'n', 's' },
+        treesitter_highlighting = true,
+      },
+    },
   },
+
+  opts_extend = { "sources.completion.enabled_providers" },
 }
+
