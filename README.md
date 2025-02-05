@@ -33,6 +33,7 @@ As a power user, I also appreciate that these open-source tools are highly custo
 
 ## dependencies
 
+- [fzf](https://github.com/junegunn/fzf)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [lazygit](https://github.com/jesseduffield/lazygit)
 - [fd](https://github.com/sharkdp/fd)
@@ -43,13 +44,13 @@ As a power user, I also appreciate that these open-source tools are highly custo
 ### macOS
 
 ```shell
-brew install neovim ripgrep lazygit fd npm go unzip
+brew install neovim fzf ripgrep lazygit fd npm go unzip
 ```
 
 ### Arch
 
 ```shell
-pacman -S neovim ripgrep lazygit fd npm go unzip
+pacman -S neovim fzf ripgrep lazygit fd npm go unzip
 ```
 
 ## installation
@@ -64,7 +65,10 @@ Run `:TSUpdate` to update the Treesitter parsers, and use `:Mason` to install or
 
 ## maintenance
 
-With [Lazy](https://github.com/folke/lazy.nvim) as a plugin manager, maintenance is minimal. It notifies you at the start of Neovim if any plugins need updates. You can simply run `:Lazy`, switch to the Updates tab, and it will update them automatically.
+With [Lazy](https://github.com/folke/lazy.nvim) as a plugin manager, maintenance is minimal. It notifies you sometimes at the start of Neovim for checking updates. 
+You can simply run `:Lazy`, switch to the Updates tab, and it will update them automatically.
+
+It is possible that after a plugin upgrade, the language servers and Treesitter also need to be upgraded. You can run those using the same commands mentioned under "Installation."
 
 
 ## tips, tricks and hints
