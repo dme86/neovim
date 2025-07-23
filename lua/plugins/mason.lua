@@ -10,7 +10,7 @@ return {
             require("mason").setup()
             require("mason-lspconfig").setup({
                 ensure_installed = {
-                    "lua_ls", "bashls", "helm_ls", "gopls", "jsonls", "marksman",
+                    "lua_ls", "tofu_ls", "bashls", "helm_ls", "gopls", "jsonls", "marksman",
                     "terraformls", "dockerls", "yamlls"
                 },
                 automatic_installation = true,
@@ -18,6 +18,7 @@ return {
 
             -- Setup lspconfig for specific servers
             require('lspconfig').lua_ls.setup{}
+            require('lspconfig').tofu_ls.setup{}
             require('lspconfig').bashls.setup{}
             require('lspconfig').helm_ls.setup{}
             require('lspconfig').gopls.setup{}
