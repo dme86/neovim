@@ -36,6 +36,7 @@ As a power user, I also appreciate that these open-source tools are highly custo
 - [fzf](https://github.com/junegunn/fzf)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [lazygit](https://github.com/jesseduffield/lazygit)
+- [tmux](https://github.com/tmux/tmux/wiki)
 - [fd](https://github.com/sharkdp/fd)
 - [npm](https://github.com/npm)
 - [go](https://github.com/golang/go)
@@ -44,13 +45,13 @@ As a power user, I also appreciate that these open-source tools are highly custo
 ### macOS
 
 ```shell
-brew install neovim fzf ripgrep lazygit fd npm go unzip
+brew install neovim fzf ripgrep lazygit tmux fd npm go unzip
 ```
 
 ### Arch
 
 ```shell
-pacman -S neovim fzf ripgrep lazygit fd npm go unzip
+pacman -S neovim fzf ripgrep lazygit tmux fd npm go unzip
 ```
 
 ## installation
@@ -139,7 +140,7 @@ These shortcuts and techniques facilitate a seamless workflow for navigating and
 |`>` o. `<`|in **visual** mode: indent block by shiftwidth (repeat with `.`)|
 |`Ctrl/Strg + t` o. `Ctrl/Strg+d`|in **visual** mode: indent block by shiftwidth|
 |`,y`|selected yank into [system clipboard](https://archlinux.org/packages/extra/x86_64/xclip/)|
-|`Shift + Ctrl/Strg + t`|toggle terminal|
+|`Ctrl/Strg + t`|toggle popup terminal with project tmux session|
 |`Ctrl/Strg + j`|*LSP*: next suggestion||`Ctrl/Strg + j`|*LSP*: next suggestion|
 |`Ctrl/Strg + k`|*LSP*: previous suggestion|
 |`Ctrl/Strg + e`|*LSP*: close completition suggestions|
@@ -195,5 +196,4 @@ These shortcuts and techniques facilitate a seamless workflow for navigating and
 because of a german keyboard i remapped my backtick **`** to ß:
 
     vim.api.nvim_set_keymap('n', 'ß', '`', { noremap = true })
-
 
