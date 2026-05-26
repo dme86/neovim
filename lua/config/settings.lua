@@ -1,5 +1,7 @@
 -- global settings
 local opt = vim.opt
+opt.undofile = true
+opt.undodir = vim.fn.expand("~/.local/share/nvim/undo")
 opt.number = true
 opt.relativenumber = true
 opt.hlsearch = true

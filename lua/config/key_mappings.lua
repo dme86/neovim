@@ -1,3 +1,61 @@
+local function format_rust_buffer()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local file = vim.api.nvim_buf_get_name(bufnr)
+
+  if file == "" then
+    vim.notify("Cannot format unnamed Rust buffer", vim.log.levels.WARN)
+    return
+  end
+
+  vim.cmd("write")
+
+  local cargo_root = vim.fs.root(file, { "Cargo.toml" })
+  local cmd
+  local cwd
+
+  if cargo_root then
+    cmd = { "cargo", "fmt" }
+    cwd = cargo_root
+  else
+    cmd = { "rustfmt", file }
+    cwd = vim.fs.dirname(file)
+  end
+
+  vim.system(cmd, { cwd = cwd, text = true }, function(result)
+    vim.schedule(function()
+      if result.code ~= 0 then
+        local err = result.stderr ~= "" and result.stderr or "Rust formatter failed"
+        vim.notify(err, vim.log.levels.ERROR)
+        return
+      end
+
+      vim.cmd("checktime " .. bufnr)
+      vim.notify("Rust formatted", vim.log.levels.INFO)
+    end)
+  end)
+end
+
+local function format_buffer()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local clients = vim.lsp.get_clients({ bufnr = bufnr, method = "textDocument/formatting" })
+
+  if #clients > 0 then
+    vim.lsp.buf.format({ async = false, bufnr = bufnr })
+    return
+  end
+
+  if vim.bo[bufnr].filetype == "rust" then
+    format_rust_buffer()
+    return
+  end
+
+  vim.notify("[LSP] Format request failed, no matching language servers.", vim.log.levels.WARN)
+end
+
+vim.keymap.set("n", "B", ":earlier 1f<CR>", { silent = true, desc = "before last file save" })
+vim.keymap.set("n", "R", ":later 1f<CR>",   { silent = true, desc = "after last file save" })
+
+
 -- Key mapping for selected yank <---> clipboard
 -- Yank into system clipboard
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y') -- yank motion
@@ -6,8 +64,8 @@ vim.keymap.set({ 'n', 'v' }, '<leader>Y', '"+Y') -- yank line
 vim.keymap.set({ 'n', 'v' }, '<leader>d', '"+d') -- delete motion
 vim.keymap.set({ 'n', 'v' }, '<leader>D', '"+D') -- delete line
 -- Paste from system clipboard
-vim.keymap.set('n', '<leader>p', '"+p')        -- paste after cursor
-vim.keymap.set('n', '<leader>P', '"+P')        -- paste before cursor
+vim.keymap.set('n', '<leader>P', '"+p')        -- paste after cursor
+vim.keymap.set('n', '<leader>p', '"+P')        -- paste before cursor
 
 -- Define a normal mode mapping for the `ß` 
 vim.api.nvim_set_keymap('n', 'ß', '`', { noremap = true })
@@ -38,10 +96,15 @@ vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('n', '<leader>m', '<C-w>|', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>n', '<C-w>=', { noremap = true, silent = true })
 
+
+vim.keymap.set("n", "<leader>tt", "<C-w>r<C-w>w", { desc = "Swap splits clockwise + switch focus" })
+
+
 -- Key mapping for saving, closing and save+close the current buffer
 vim.keymap.set('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<Leader>q', ':q<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<Leader>x', ':x<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>f', format_buffer, { desc = 'Format current buffer' })
 
 -- Key mappings for navigating windows
 vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true })
@@ -57,3 +120,13 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { noremap = true })
 vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { noremap = true })
 vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { noremap = true })
+
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*.rs',
+  callback = function(args)
+    local clients = vim.lsp.get_clients({ bufnr = args.buf, method = "textDocument/formatting" })
+    if #clients > 0 then
+      vim.lsp.buf.format({ async = false, bufnr = args.buf })
+    end
+  end,
+})

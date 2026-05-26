@@ -7,26 +7,29 @@ return {
             "neovim/nvim-lspconfig",
         },
         config = function()
+            local servers = {
+                "lua_ls",
+                "tofu_ls",
+                "bashls",
+                "helm_ls",
+                "gopls",
+                "jsonls",
+                "marksman",
+                "rust_analyzer",
+                "terraformls",
+                "dockerls",
+                "yamlls",
+            }
+
             require("mason").setup()
             require("mason-lspconfig").setup({
-                ensure_installed = {
-                    "lua_ls", "tofu_ls", "bashls", "helm_ls", "gopls", "jsonls", "marksman",
-                    "terraformls", "dockerls", "yamlls"
-                },
-                automatic_installation = true,
+                ensure_installed = servers,
+                automatic_enable = false,
             })
 
-            -- Setup lspconfig for specific servers
-            require('lspconfig').lua_ls.setup{}
-            require('lspconfig').tofu_ls.setup{}
-            require('lspconfig').bashls.setup{}
-            require('lspconfig').helm_ls.setup{}
-            require('lspconfig').gopls.setup{}
-            require('lspconfig').jsonls.setup{}
-            require('lspconfig').marksman.setup{}
-            require('lspconfig').terraformls.setup{}
-            require('lspconfig').dockerls.setup{}
-            require('lspconfig').yamlls.setup{}
+            for _, server in ipairs(servers) do
+                vim.lsp.enable(server)
+            end
         end,
     },
 
