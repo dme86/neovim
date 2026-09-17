@@ -1,7 +1,7 @@
 return {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.8',
-  dependencies = { 'nvim-telescope/telescope-ui-select.nvim' }, -- add the ui-select extension as a dependency
+  dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-ui-select.nvim' },
   config = function()
     require("telescope").setup {
       pickers = {
@@ -29,4 +29,3 @@ return {
     require("telescope").load_extension("ui-select")
   end,
 }
-

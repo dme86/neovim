@@ -40,18 +40,19 @@ As a power user, I also appreciate that these open-source tools are highly custo
 - [fd](https://github.com/sharkdp/fd)
 - [npm](https://github.com/npm)
 - [go](https://github.com/golang/go)
+- [tree-sitter CLI](https://github.com/tree-sitter/tree-sitter)
 - [unzip](https://archlinux.org/packages/extra/x86_64/unzip/)
 
 ### macOS
 
 ```shell
-brew install neovim fzf ripgrep lazygit tmux fd npm go unzip
+brew install neovim fzf ripgrep lazygit tmux fd npm go unzip tree-sitter-cli
 ```
 
 ### Arch
 
 ```shell
-pacman -S neovim fzf ripgrep lazygit tmux fd npm go unzip
+pacman -S neovim fzf ripgrep lazygit tmux fd npm go unzip tree-sitter-cli
 ```
 
 ## installation
@@ -62,11 +63,11 @@ git clone --depth 1 git@github.com:dme86/neovim.git ~/.config/nvim
 ```
 
 If for some reason the plugins don't install automatically, you can run the `:Lazy sync` command to ensure that all your plugins are installed and up to date. 
-Run `:TSUpdate` to update the Treesitter parsers, and use `:Mason` to install or update the language servers.
+Treesitter parsers are installed automatically. Run `:TSUpdate` to update them, and use `:Mason` to install or update the language servers. Parser installation requires a C compiler and the `tree-sitter` CLI.
 
 ## maintenance
 
-With [Lazy](https://github.com/folke/lazy.nvim) as a plugin manager, maintenance is minimal. It notifies you sometimes at the start of Neovim for checking updates. 
+With [Lazy](https://github.com/folke/lazy.nvim) as a plugin manager, maintenance is minimal. It checks for updates weekly without notifications.
 You can simply run `:Lazy`, switch to the Updates tab, and it will update them automatically.
 
 It is possible that after a plugin upgrade, the language servers and Treesitter also need to be upgraded. You can run those using the same commands mentioned under "Installation."
@@ -98,8 +99,8 @@ Alternatively, if you are in the fuzzy finder (`,ff`), you can achieve the same 
 
 The newly opened file will appear on the left side, and the previously opened file will move to the right. To switch focus between them, utilize the default vim motions:
 
--   `Ctrl + l`: Select the left split
--   `Ctrl + h`: Select the right split
+-   `Ctrl + h`: Select the left split
+-   `Ctrl + l`: Select the right split
 -   `Ctrl + w + w` Toggle
 
 You can interchange their positions by typing `Ctrl + w` followed by `Ctrl + r`.
@@ -124,7 +125,7 @@ These shortcuts and techniques facilitate a seamless workflow for navigating and
 |--|--|
 |`,vs`|virtual split of the open file|
 |`,cs`|close split|
-|`,rv`|a simple dialogue will appear, enter a number to increase/decrease the split|
+|`,F`|Format current buffer (Rust fallback formats only the current file)|
 |`,m`|Maximize split|
 |`,n`|Normalize split|
 |`,w`|Write file|
@@ -196,4 +197,3 @@ These shortcuts and techniques facilitate a seamless workflow for navigating and
 because of a german keyboard i remapped my backtick **`** to ß:
 
     vim.api.nvim_set_keymap('n', 'ß', '`', { noremap = true })
-

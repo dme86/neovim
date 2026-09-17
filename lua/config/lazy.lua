@@ -33,6 +33,6 @@ require("lazy").setup({
   checker = {
     enabled = true,
     notify = false,
-    frequency = 7,
+    frequency = 7 * 24 * 60 * 60,
   },
 })

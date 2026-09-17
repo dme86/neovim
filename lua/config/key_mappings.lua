@@ -7,21 +7,32 @@ local function format_rust_buffer()
     return
   end
 
-  vim.cmd("write")
-
   local cargo_root = vim.fs.root(file, { "Cargo.toml" })
-  local cmd
-  local cwd
-
+  local edition = "2021"
   if cargo_root then
-    cmd = { "cargo", "fmt" }
-    cwd = cargo_root
-  else
-    cmd = { "rustfmt", file }
-    cwd = vim.fs.dirname(file)
+    local metadata = vim.system({ "cargo", "metadata", "--no-deps", "--format-version", "1" },
+      { cwd = cargo_root, text = true }):wait(10000)
+    if metadata.code ~= 0 then
+      vim.notify(metadata.stderr or "Cannot determine Rust edition", vim.log.levels.ERROR)
+      return
+    end
+    local ok, data = pcall(vim.json.decode, metadata.stdout)
+    if not ok then
+      vim.notify("Cannot parse Cargo metadata", vim.log.levels.ERROR)
+      return
+    end
+    for _, package in ipairs(data.packages) do
+      if vim.fs.dirname(package.manifest_path) == cargo_root then
+        edition = package.edition
+        break
+      end
+    end
   end
 
-  vim.system(cmd, { cwd = cwd, text = true }, function(result)
+  local changedtick = vim.api.nvim_buf_get_changedtick(bufnr)
+  local input = table.concat(vim.api.nvim_buf_get_lines(bufnr, 0, -1, false), "\n") .. "\n"
+  vim.system({ "rustfmt", "--edition", edition, "--emit", "stdout" },
+    { cwd = vim.fs.dirname(file), text = true, stdin = input }, function(result)
     vim.schedule(function()
       if result.code ~= 0 then
         local err = result.stderr ~= "" and result.stderr or "Rust formatter failed"
@@ -29,7 +40,14 @@ local function format_rust_buffer()
         return
       end
 
-      vim.cmd("checktime " .. bufnr)
+      if vim.api.nvim_buf_is_valid(bufnr) then
+        if vim.api.nvim_buf_get_changedtick(bufnr) ~= changedtick then
+          vim.notify("Buffer changed during formatting; result discarded", vim.log.levels.WARN)
+          return
+        end
+        local lines = vim.split(result.stdout:gsub("\n$", ""), "\n", { plain = true })
+        vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
+      end
       vim.notify("Rust formatted", vim.log.levels.INFO)
     end)
   end)
@@ -104,13 +122,7 @@ vim.keymap.set("n", "<leader>tt", "<C-w>r<C-w>w", { desc = "Swap splits clockwis
 vim.keymap.set('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<Leader>q', ':q<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<Leader>x', ':x<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>f', format_buffer, { desc = 'Format current buffer' })
-
--- Key mappings for navigating windows
-vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true })
-vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true })
-vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true })
-vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true })
+vim.keymap.set('n', '<leader>F', format_buffer, { desc = 'Format current buffer' })
 
 -- Moving highlightet text
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -122,6 +134,7 @@ vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { noremap = tr
 vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { noremap = true })
 
 vim.api.nvim_create_autocmd('BufWritePre', {
+  group = vim.api.nvim_create_augroup('RustFormatOnSave', { clear = true }),
   pattern = '*.rs',
   callback = function(args)
     local clients = vim.lsp.get_clients({ bufnr = args.buf, method = "textDocument/formatting" })

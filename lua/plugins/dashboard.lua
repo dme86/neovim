@@ -30,15 +30,21 @@ return {
           key = 'f',
         },
         {
-          desc = ' Apps',
+          desc = ' Buffers',
           group = 'DiagnosticHint',
-          action = 'Telescope app',
-          key = 'a',
+          action = 'Telescope buffers',
+          key = 'b',
         },
         {
-          desc = ' dotfiles',
+          desc = ' Neovim config',
           group = 'Number',
-          action = 'Telescope dotfiles',
+          action = function()
+            require('telescope.builtin').find_files({
+              cwd = vim.fn.stdpath('config'),
+              hidden = true,
+              prompt_title = 'Neovim config',
+            })
+          end,
           key = 'd',
         },      -- config
     },

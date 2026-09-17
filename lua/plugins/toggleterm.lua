@@ -5,19 +5,13 @@ return {
   config = function()
     local Terminal = require('toggleterm.terminal').Terminal
 
-    local function project_session_name()
-      local cwd = vim.fn.getcwd()
-      local root = vim.fs.root(cwd, { '.git', 'Cargo.toml', 'go.mod', 'package.json' }) or cwd
+    local function project_session_name(root)
       local home = vim.fs.normalize(vim.env.HOME or "")
       local normalized = vim.fs.normalize(root)
-      if home ~= "" and normalized:sub(1, #home) == home then
+      if home ~= "" and (normalized == home or normalized:sub(1, #home + 1) == home .. "/") then
         normalized = "~" .. normalized:sub(#home + 1)
       end
-      return (normalized:gsub('[^%w_%-~]', '_'))
-    end
-
-    local function project_tmux_cmd()
-      return "tmux new-session -A -s " .. project_session_name()
+      return (normalized:gsub('[^%w_%-~]', '_')) .. "_" .. vim.fn.sha256(root):sub(1, 12)
     end
 
     require("toggleterm").setup({
@@ -41,24 +35,38 @@ return {
       },
     })
 
-    local project_tmux = Terminal:new({
-      cmd = project_tmux_cmd(),
-      display_name = "dme :: popup terminal",
-      hidden = true,
-      close_on_exit = false,
-      direction = 'float',
-      dir = 'git_dir',
-      on_open = function()
-        vim.cmd("startinsert")
-      end,
-    })
-
+    local project_terminals = {}
     local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 
     function _project_tmux_toggle()
-      project_tmux.cmd = project_tmux_cmd()
-      project_tmux.dir = vim.fs.root(vim.fn.getcwd(), { '.git' }) or vim.fn.getcwd()
-      project_tmux:toggle()
+      -- Close the current project terminal even if :cd changed while it was open.
+      for _, terminal in pairs(project_terminals) do
+        if terminal:is_open() then
+          terminal:close()
+          return
+        end
+      end
+      if vim.fn.executable('tmux') == 0 then
+        vim.notify('tmux is not installed', vim.log.levels.ERROR)
+        return
+      end
+      local cwd = vim.fn.getcwd()
+      local root = vim.fs.normalize(vim.fs.root(cwd, { '.git', 'Cargo.toml', 'go.mod', 'package.json' }) or cwd)
+      local terminal = project_terminals[root]
+      if not terminal or (terminal.job_id and vim.fn.jobwait({ terminal.job_id }, 0)[1] ~= -1) then
+        terminal = Terminal:new({
+          cmd = 'tmux new-session -A -s ' .. vim.fn.shellescape(project_session_name(root))
+            .. ' -c ' .. vim.fn.shellescape(root),
+          display_name = 'dme :: popup terminal',
+          hidden = true,
+          close_on_exit = true,
+          direction = 'float',
+          dir = root,
+          on_open = function() vim.cmd('startinsert') end,
+        })
+        project_terminals[root] = terminal
+      end
+      terminal:toggle()
     end
 
     function _lazygit_toggle()

@@ -16,7 +16,6 @@ return {
                 "jsonls",
                 "marksman",
                 "rust_analyzer",
-                "terraformls",
                 "dockerls",
                 "yamlls",
             }

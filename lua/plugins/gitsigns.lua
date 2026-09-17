@@ -9,9 +9,13 @@ return {
         topdelete    = { text = '✖' },
         changedelete = { text = '~' },
         untracked    = { text = '' },
-	staged       = { text = '' },
-	ignored      = { text = '' },
-	conflict     = { text = '' },
+      },
+      signs_staged = {
+        add = { text = '' },
+        change = { text = '' },
+        delete = { text = '✖' },
+        topdelete = { text = '✖' },
+        changedelete = { text = '~' },
       },
       signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
       numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
